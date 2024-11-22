@@ -17,10 +17,36 @@ void setup() {
   RS485Serial.begin(9600);
   Serial.println("AGV Motor Control Initialized");
   node.begin(1, RS485Serial);
+  pinMode(RS485_ENABLE_PIN, OUTPUT);
+  digitalWrite(RS485_ENABLE_PIN, LOW);
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  if (Serial.available()){
+    String cmd = Serial.readStringUntil('\n');
+    cmd.trim();
+
+    if (cmd == "Servo ON"){
+      Serial.println("Enabling Servo Motors!!");
+    }
+    else if (cmd == "Servo OFF"){
+      Serial.println("Disabling Servo Motors!!");
+    }
+    else if (cmd == "Move Forward"){
+      Serial.println("Moving AGV Forward!!");
+    }
+    else if (cmd == "Move Backward"){
+      Serial.println("Moving AGV Backward!!");
+    }
+    else if (cmd == "Move Left"){
+      Serial.println("Moving AGV Left Lateraly");
+    }
+    else if ( cmd == "Move Right"){
+      Serial.println("Moving AGV Right Lateraly");
+    } else {
+      Serial.println("Invalid command. Valid Commands: Servo ON, Servo OFF, Move Forward, Move Backward, Move Left, Move Right");
+    }
+  }
 
 }
