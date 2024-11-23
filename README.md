@@ -1,2 +1,2 @@
-# agv_swivel_motor_driver_control_abs
-script code on Arduino board (UNO R3) for communicating and sending commands from the Arduino board to the AGV servo motor's drivers using RS485 Modbus protocol
+# AGV Motor Control via MODBUS over RS485
+This Arduino project provides a control system for an Automated Guided Vehicle (AGV) using MODBUS communication over RS485. It allows you to control traction and steering motors for movements like forward, backward, left, and right lateral movements.
